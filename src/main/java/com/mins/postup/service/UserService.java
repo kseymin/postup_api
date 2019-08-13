@@ -13,11 +13,13 @@ public interface UserService {
     User create(String user_id,String pwd,String email,String name);
 
     //search by table Id(long)
-    User findById(long id);
+    Optional<User> findById(long id);
     //search by user_id(String)
     Optional<User> findByUserid(String user_id);
     //change user info
     User changeInfo(Long id,String newPwd,String newEmail,String newName);
     //change user password
     User changePassword(Long id,String pwd);
+    //add team
+    User addTeam(Long id,Integer team_id);
 }

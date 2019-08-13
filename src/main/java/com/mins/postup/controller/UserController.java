@@ -1,6 +1,8 @@
 package com.mins.postup.controller;
 
+import com.mins.postup.entity.Team;
 import com.mins.postup.entity.User;
+import com.mins.postup.service.TeamService;
 import com.mins.postup.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -18,6 +20,7 @@ public class UserController {
     @Autowired
     UserService UserService;
 
+
     //Create
     @PostMapping("/making")
     public User put(@RequestParam String user_id, String pwd, String email, String name){
@@ -32,7 +35,7 @@ public class UserController {
 
     //user search by table_id
     @PostMapping("/id")
-    public User findById(@RequestParam Long id){
+    public Optional<User> findById(@RequestParam Long id){
         return UserService.findById(id);
     }
     //user serach by user_id
@@ -52,5 +55,12 @@ public class UserController {
     public User change_password(@RequestParam Long id ,String pwd){
 
         return UserService.changePassword(id,pwd);
+    }
+
+    //addTeam
+    @PostMapping("/addteam")
+    public User addTeam(@RequestParam Long id , Integer team_id){
+       return UserService.addTeam(id,team_id);
+
     }
 }

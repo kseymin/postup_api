@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.lang.Nullable;
 
 
 import javax.persistence.*;
@@ -32,8 +33,10 @@ public class User {
     @Column(name="email")
     private String email;
 
-    @Column(name = "teams_id")
-    private Integer teams_id;
+   // @Column(name = "teams_id")
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "team_id" ,updatable = true)
+    private Team team;
 
     @Column(name = "profile_img")
     private String profile_img;

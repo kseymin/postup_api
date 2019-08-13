@@ -1,6 +1,8 @@
 package com.mins.postup.service;
 
+import com.mins.postup.entity.Team;
 import com.mins.postup.entity.User;
+import com.mins.postup.repogitory.TeamRepogitory;
 import com.mins.postup.repogitory.UserRepogitory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,6 +19,9 @@ public class UserServiceImpl implements UserService {
     @Autowired
     UserRepogitory UserRepogitory;
 
+    @Autowired
+    TeamService teamService;
+
 
     @Override
     public List<User> findAll() {
@@ -31,7 +36,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User findById(long id) {
+    public Optional<User> findById(long id) {
         return UserRepogitory.findById(id);
     }
 
@@ -46,6 +51,9 @@ public class UserServiceImpl implements UserService {
 //        User user = User.builder().pwd(newPwd).email(newEmail).name(newName).build();
 //        user.setId(id);
 //        UserRepogitory.save(user);
+
+
+
 
         Optional<User> tmpuser = UserRepogitory.findById(id);
         User user = tmpuser.get();
@@ -63,6 +71,31 @@ public class UserServiceImpl implements UserService {
         User user = tmpuser.get();
         user.setPassword(pwd);
         UserRepogitory.save(user);
+        return user;
+    }
+
+    @Override
+    public User addTeam(Long id,Integer team_id) {
+        //예외처리안함 현재 팀이 없을수있음
+        Optional<User> tmpUser = findById(id);
+        Optional<Team> tmpteam = teamService.findbyid(team_id);
+
+        Team team = tmpteam.get();
+        User user = tmpUser.get();
+        user.setTeam(team);
+
+//
+//        Optional<Team> tmpteam = teamRepogitory.findById(team_id);
+//        Team team = tmpteam.get();
+//
+//        Optional<User> tmpUser = UserRepogitory.findById(id);
+//        User user = tmpUser.get();
+//        user.setTeam(team);
+
+        UserRepogitory.save(user);
+
+
+
         return user;
     }
 
