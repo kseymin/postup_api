@@ -22,4 +22,7 @@ public interface UserService {
     User changePassword(Long id,String pwd);
     //add team
     User addTeam(Long id,Integer team_id);
+
+    //find belongs team
+    List<String> findteam(Long id);
 }

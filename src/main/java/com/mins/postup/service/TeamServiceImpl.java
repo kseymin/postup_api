@@ -26,10 +26,10 @@ public class TeamServiceImpl implements TeamService {
     }
 
     @Override
-    public Team makeTeam(Team team) {
-        Team uteam = team;
-        teamRepogitory.save(uteam);
-        return uteam;
+    public Team makeTeam(String name , String description) {
+        Team team = new Team(name,description);
+        teamRepogitory.save(team);
+        return team;
     }
 
 }

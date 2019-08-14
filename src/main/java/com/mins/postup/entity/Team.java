@@ -1,5 +1,6 @@
 package com.mins.postup.entity;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -25,6 +26,30 @@ public class Team {
     private String description;
 
 //    @OneToMany(mappedBy = "team")
-//    private List<User> user = new List<User>();
+//    @JsonManagedReference
+//    private List<User> user ;
+//
+
+
+
+    @ManyToMany(mappedBy = "team")
+    @JsonManagedReference
+    private List<User> users ;
+
+    public void addUser(User user){
+        this.users.add(user);
+    }
+
+    public void removeUser(User user){
+        this.users.remove(user);
+    }
+
+
+    public Team(String name ,String description){
+        this.name = name;
+        this.description = description;
+    }
+
+
 
 }

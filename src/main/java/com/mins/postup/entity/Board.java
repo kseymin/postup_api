@@ -1,6 +1,7 @@
 package com.mins.postup.entity;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -12,6 +13,7 @@ import javax.persistence.*;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+
 public class Board {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -27,5 +29,12 @@ public class Board {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id" ,updatable = true)
     private User user;
+
+
+    public Board(String name,String description,User user){
+        this.name = name;
+        this.description = description;
+        this.user = user;
+    }
 
 }

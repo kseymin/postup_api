@@ -23,8 +23,8 @@ public class TeamController {
 
     //create Team
     @PostMapping("/making")
-    public Team make(@RequestBody Team team){
-        return teamService.makeTeam(team);
+    public Team make(@RequestParam String name , String description){
+        return teamService.makeTeam(name,description);
     }
 
     //search Team by id

@@ -7,7 +7,7 @@ import java.util.Optional;
 
 public interface TeamService {
 
-    Team makeTeam(Team team);
+    Team makeTeam(String name, String Description);
 
     List<Team> findall();
 
