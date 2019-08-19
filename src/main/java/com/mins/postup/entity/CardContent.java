@@ -26,4 +26,12 @@ public class CardContent {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "card_id" ,updatable = true)
     private Card card;
+
+
+    public CardContent(String name,String contents,Card card){
+        this.name = name;
+        this.contents = contents;
+        this.card = card;
+
+    }
 }

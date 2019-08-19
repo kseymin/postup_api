@@ -28,4 +28,12 @@ public class Card {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "list_id" ,updatable = true)
     private List list;
+
+
+    public Card(String name, String description , List list){
+        this.name = name;
+        this.description = description;
+        this.list = list;
+
+    }
 }

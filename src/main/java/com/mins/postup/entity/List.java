@@ -32,4 +32,6 @@ public class List {
         this.name = name;
         this.board = board;
     }
+
+
 }

@@ -22,4 +22,10 @@ public class Data {
 
     @Column(name = "datafiles")
     private String datafiles;
+
+    public Data(CardContent cardContent,String datafiles){
+        this.cardContent = cardContent;
+        this.datafiles = datafiles;
+
+    }
 }
