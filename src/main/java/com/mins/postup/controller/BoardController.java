@@ -29,6 +29,7 @@ public class BoardController {
         return boardService.findById(id);
     }
 
+    // 해당하는 사용자의 모든 보드를 보여줌(보드의 모든정보) , 리스트로 던져줌
     @PostMapping("/findbyuser")
     public List<Board> findByUser(Integer user_id) {
         return boardService.findByUser(user_id);

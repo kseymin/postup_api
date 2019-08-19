@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 @RestController
@@ -23,16 +24,17 @@ public class TeamController {
 
     //create Team
     @PostMapping("/making")
-    public Team make(@RequestParam String name , String description){
+    public Team make(@RequestBody Map<String,Object> object){
+        String name = object.get("name").toString();
+        String description = object.get("description").toString();
         return teamService.makeTeam(name,description);
     }
 
     //search Team by id
 
     @PostMapping("/id")
-    public Optional<Team> findbyId(@RequestParam Integer id){
-//        Optional<Team> tmpteam= teamService.findbyid(id);
-//        Team team = tmpteam.get();
+    public Optional<Team> findbyId(@RequestBody Map<String,Object> object){
+        Integer id = Integer.parseInt(object.get("id").toString());
         return teamService.findbyid(id);
 
     }

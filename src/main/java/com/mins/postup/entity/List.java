@@ -26,4 +26,10 @@ public class List {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "board_id" ,updatable = true)
     private Board board;
+
+
+    public List(String name,Board board){
+        this.name = name;
+        this.board = board;
+    }
 }
