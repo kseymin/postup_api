@@ -121,4 +121,55 @@ public class UserServiceImpl implements UserService {
     }
 
 
+    //중복되면 False 를 준다.
+    @Override
+    public Boolean userCheck(String userid) {
+        Optional<User> tmpuser =userRepogitory.findByUserid(userid);
+        if(tmpuser.isPresent()){
+            return false;
+        }else{
+            return true;
+        }
+
+    }
+
+    //user_id and password check
+    @Override
+    public Boolean userLogin(String userid, String password) {
+        Optional<User> tmpuser =userRepogitory.findByUserid(userid);
+
+
+
+        if(tmpuser.isPresent()){
+            //userid 있고
+
+            User user = tmpuser.get();
+            //password check // 비밀번호가 맞는다면
+            if(user.getPassword().equals(password)){
+                return true;
+            }
+            return false;
+        }else{
+
+            return false;
+        }
+
+
+    }
+
+    //user_id and password check and throw User
+    @Override
+    public User userLogin_user(String userid, String password) {
+        Boolean loginok = userLogin(userid,password);
+
+        if (loginok){ // if login is ok ,then throw user
+            User user = userRepogitory.findByUserid(userid).get();
+            return user;
+        }else{// login failed
+            return null;
+        }
+
+    }
+
+
 }

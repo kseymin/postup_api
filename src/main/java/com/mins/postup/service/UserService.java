@@ -28,4 +28,10 @@ public interface UserService {
 
     //delete user
     User delete(Long id);
+
+    //userid 중복확인
+    Boolean userCheck(String userid);
+
+    Boolean userLogin(String userid,String password);
+    User userLogin_user(String userid,String password);
 }

@@ -30,6 +30,7 @@ public class Board {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @OnDelete(action = OnDeleteAction.CASCADE)
+    // OnDelete => 참조한 부모가 없어지면 자식도 삭제해버리기
     @JoinColumn(name = "user_id" ,updatable = true)
     private User user;
 
