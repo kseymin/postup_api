@@ -12,7 +12,7 @@ import java.util.Map;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/cardContent")
+@RequestMapping("/cardcontent")
 public class CardContentController {
     @Autowired
     CardContentService cardContentService;
