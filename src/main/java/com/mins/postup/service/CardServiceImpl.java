@@ -37,4 +37,13 @@ public class CardServiceImpl implements CardService {
 
         return card;
     }
+
+    @Override
+    public Card delete(Integer card_id) {
+        Optional<Card> tmpcard = cardRepogitory.findById(card_id);
+        Card card = tmpcard.get();
+
+        cardRepogitory.delete(card);
+        return card;
+    }
 }

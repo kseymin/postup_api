@@ -37,4 +37,14 @@ public class ListServiceImpl implements ListService {
 
         return list;
     }
+
+    @Override
+    public List delete(Integer id) {
+        Optional<List> tmplist = listRepogitory.findById(id);
+        List list = tmplist.get();
+
+        listRepogitory.delete(list);
+
+        return list;
+    }
 }

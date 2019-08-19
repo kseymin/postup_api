@@ -6,10 +6,13 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Table
-@Entity(name = "TEAM")
+@Entity(name = "team")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -32,9 +35,14 @@ public class Team {
 
 
 
-    @ManyToMany(mappedBy = "team")
+    @ManyToMany(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST,CascadeType.MERGE})
     @JsonManagedReference
-    private List<User> users ;
+    @JoinTable(name="user_team",
+            joinColumns = @JoinColumn(name = "team_id"),
+            inverseJoinColumns = @JoinColumn(name = "user_id"))
+    private List<User> users = new ArrayList<>();
+    //private Set<User> users = new HashSet<>();
+
 
     public void addUser(User user){
         this.users.add(user);

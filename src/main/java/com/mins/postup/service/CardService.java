@@ -11,4 +11,6 @@ public interface CardService {
 
     Card making(String name, String description , Integer list_id);
 
+    Card delete(Integer card_id);
+
 }

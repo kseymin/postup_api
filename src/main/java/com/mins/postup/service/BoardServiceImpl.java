@@ -47,4 +47,13 @@ public class BoardServiceImpl implements BoardService{
 
         return boardList;
     }
+
+    @Override
+    public Board delete(Integer board_id) {
+        Optional<Board> tmpboard= boardRepogitory.findById(board_id);
+        Board board = tmpboard.get();
+
+        boardRepogitory.delete(board);
+        return board;
+    }
 }

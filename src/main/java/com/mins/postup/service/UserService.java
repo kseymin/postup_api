@@ -25,4 +25,7 @@ public interface UserService {
 
     //find belongs team
     List<String> findteam(Long id);
+
+    //delete user
+    User delete(Long id);
 }

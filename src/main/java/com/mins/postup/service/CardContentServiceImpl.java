@@ -37,4 +37,12 @@ public class CardContentServiceImpl implements CardContentService {
 
         return cc;
     }
+
+    @Override
+    public CardContent delete(Integer cardcontent_id) {
+        Optional<CardContent> tmpcard = cardContentRepogitory.findById(cardcontent_id);
+        CardContent cc = tmpcard.get();
+        cardContentRepogitory.delete(cc);
+        return cc;
+    }
 }

@@ -11,10 +11,12 @@ import org.springframework.lang.Nullable;
 
 import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Table
-@Entity(name="USER")
+@Entity(name="user")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -38,20 +40,14 @@ public class User {
     @Column(name="email")
     private String email;
 
-//    //@Column(name = "teams_id")
-//    @ManyToOne
-//    @JoinColumn
-//    @JsonBackReference
-//    private Team team;
 
 
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST,CascadeType.MERGE})
     @JoinTable(name="user_team",
             joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "team_id"))
     @JsonBackReference
-    private List<Team> team ;
-
+    private List<Team> team = new ArrayList<>() ;
 
     @Column(name = "profile_img")
     private String profile_img;
@@ -67,9 +63,18 @@ public class User {
 //
 //
 //        this.team = team;
-//        team.add(team);
+//        this.team.add(team);
 //
 //    }
+
+    public void addTeam(Team team){
+        this.team.add(team);
+    }
+
+    public void removeTeam(Team team){
+        this.team.remove(team);
+    }
+
 
     @Builder
     public User(String id,String pwd,String email,String name){

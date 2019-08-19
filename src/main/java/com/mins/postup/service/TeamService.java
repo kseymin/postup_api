@@ -13,4 +13,5 @@ public interface TeamService {
 
     Optional<Team> findbyid(Integer id);
 
+    Team delete(Integer id);
 }

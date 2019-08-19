@@ -15,6 +15,8 @@ public interface UserRepogitory extends JpaRepository<User,Long> {
     List<User> findAll();
     Optional<User> findById(long id);
     Optional<User> findByUserid(String user_id);
+    //User deleteById(long id);
+    User deleteAllByIdIn(Long id);
 
 
 //    @Query(value = "SELECT  FROM User")

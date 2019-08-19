@@ -25,6 +25,20 @@ public class TeamServiceImpl implements TeamService {
         return teamRepogitory.findById(id);
     }
 
+
+    @Override
+    public Team delete(Integer id) {
+        Optional<Team> tmpteam = teamRepogitory.findById(id);
+        Team team = tmpteam.get();
+
+        //다비우기
+        team.getUsers().clear();
+        teamRepogitory.save(team);
+        teamRepogitory.delete(team);
+
+        return team;
+    }
+
     @Override
     public Team makeTeam(String name , String description) {
         Team team = new Team(name,description);

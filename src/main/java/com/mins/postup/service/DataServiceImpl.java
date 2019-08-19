@@ -38,5 +38,14 @@ public class DataServiceImpl implements DataService{
         return datas;
     }
 
+    //delete
+    @Override
+    public Data delete(Integer data_id) {
+        Optional<Data> tmpdata = dataRepogitory.findById(data_id);
+        Data data = tmpdata.get();
+        dataRepogitory.delete(data);
+        return data;
+    }
+
 
 }

@@ -16,18 +16,27 @@ public class DataController {
     @Autowired
     DataService dataService;
 
-    @GetMapping("findall")
+    @GetMapping("/findall")
     public List<Data> findall(){
         return dataService.findAll();
     }
 
-    @PostMapping("id")
+    @PostMapping("/id")
     public Optional<Data> findbyId(@RequestBody Map<String, Object> object){
         Integer id = Integer.parseInt(object.get("id").toString());
         return dataService.findById(id);
     }
 
-    @PostMapping("making")
+    //delete
+    @DeleteMapping("/id")
+    public Data delete(@RequestBody Map<String, Object> object){
+        Integer id = Integer.parseInt(object.get("id").toString());
+        return dataService.delete(id);
+
+    }
+
+
+    @PostMapping("/making")
     public Data making(@RequestBody Map<String, Object> object){
         Integer cardContent_id = Integer.parseInt(object.get("cardcontent_id").toString());
         String datafiles = object.get("datafiles").toString();

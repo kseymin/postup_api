@@ -32,7 +32,10 @@ public class ListController {
         return listService.findById(id);
     }
 
-
-//    @PostMapping("/id")
-//    public com.mins.postup.entity.List findbyId(){}
+    //delete
+    @DeleteMapping("/id")
+    public List delete(@RequestBody Map<String,Object> object){
+        Integer id = Integer.parseInt(object.get("id").toString());
+        return listService.delete(id);
+    }
 }

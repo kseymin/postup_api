@@ -39,5 +39,14 @@ public class TeamController {
 
     }
 
+    //delete team
+
+    @DeleteMapping("/id")
+    public Team delete(@RequestBody Map<String,Object> object){
+        Integer id = Integer.parseInt(object.get("id").toString());
+        return teamService.delete(id);
+
+    }
+
 
 }

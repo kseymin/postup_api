@@ -10,4 +10,6 @@ public interface ListService {
 
     List making(Integer board_id, String name);
 
+    List delete(Integer id);
+
 }

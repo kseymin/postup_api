@@ -10,4 +10,6 @@ public interface BoardService {
     Board making(Long user_id,String name,String description);
     List<Board> findAll();
     List<Board> findByUser(Integer user_id);
+
+    Board delete(Integer board_id);
 }

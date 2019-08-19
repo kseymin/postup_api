@@ -13,4 +13,5 @@ public interface TeamRepogitory extends JpaRepository<Team, Integer> {
     List<Team> findAll();
     Optional<Team> findById(Integer id);
 
+
 }

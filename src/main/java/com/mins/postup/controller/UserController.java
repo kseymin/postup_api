@@ -64,8 +64,12 @@ public class UserController {
 
     //change User info
     @PostMapping("/change_info")
-    public User change_info(@RequestBody User user){
-        return UserService.changeInfo(user.getId(),user.getPassword(),user.getEmail(),user.getName());
+    public User change_info(@RequestBody Map<String ,Object> user){
+        Long id = Long.parseLong(user.get("id").toString());
+        String pwd = user.get("pwd").toString();
+        String email = user.get("email").toString();
+        String name = user.get("name").toString();
+        return UserService.changeInfo(id,pwd,email,name);
     }
 
     //change User password
@@ -90,6 +94,14 @@ public class UserController {
     public List<String> findTeam(@RequestBody Map<String,Object> object ){
         Long id = Long.parseLong(object.get("id").toString());
         return UserService.findteam(id);
+
+    }
+
+    //Delete user
+    @DeleteMapping("/id")
+    public User delete(@RequestBody Map<String,Object> object){
+        Long id = Long.parseLong(object.get("id").toString());
+        return UserService.delete(id);
 
     }
 

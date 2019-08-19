@@ -36,6 +36,12 @@ public class CardController {
         return cardService.making(name,description,list_id);
 
     }
+    //delete
+    @DeleteMapping("/id")
+    public Card delete(@RequestBody Map<String , Object> object){
+        Integer id = Integer.parseInt(object.get("id").toString());
+        return cardService.delete(id);
 
+    }
 
 }

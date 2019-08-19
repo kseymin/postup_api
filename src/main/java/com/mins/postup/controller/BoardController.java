@@ -41,4 +41,12 @@ public class BoardController {
         Integer user_id = Integer.parseInt(object.get("user_id").toString());
         return boardService.findByUser(user_id);
     }
+
+    //delete board
+    @DeleteMapping("/id")
+    public Board delete(@RequestBody Map<String,Object> object){
+        Integer id = Integer.parseInt(object.get("id").toString());
+        return boardService.delete(id);
+
+    }
 }

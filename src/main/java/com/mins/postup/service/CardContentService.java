@@ -10,4 +10,6 @@ public interface CardContentService {
     Optional<CardContent> findById(Integer id);
 
     CardContent making(String name, String contents , Integer card_id);
+
+    CardContent delete(Integer cardcontent_id);
 }
