@@ -23,12 +23,17 @@ public class Data {
     @JoinColumn(name = "cardcontent_id" ,updatable = true)
     private CardContent cardContent;
 
-    @Column(name = "datafiles")
-    private String datafiles;
+    @Column(name = "name")
+    private String name;
 
-    public Data(CardContent cardContent,String datafiles){
+    @Column(name = "data_uri")
+    @Lob
+    private String data_uri;
+
+    public Data(CardContent cardContent,String name,String data_uri){
         this.cardContent = cardContent;
-        this.datafiles = datafiles;
+        this.name = name;
+        this.data_uri = data_uri;
 
     }
 }
