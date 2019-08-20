@@ -14,4 +14,6 @@ public interface DataService {
     Data making(Integer cardContent_id, String datafiles);
 
     Data delete(Integer data_id);
+
+    Data update(Integer id,String datafiles);
 }

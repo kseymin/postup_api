@@ -46,4 +46,14 @@ public class CardContentController {
         return  cardContentService.delete(id);
 
     }
+
+    //update
+    //@PostMapping("/update")
+    @PutMapping("/update")
+    public CardContent update(@RequestBody Map<String , Object> object){
+        Integer id = Integer.parseInt(object.get("id").toString());
+        String name = object.get("name").toString();
+        String contents = object.get("contents").toString();
+        return cardContentService.update(id,name,contents);
+    }
 }

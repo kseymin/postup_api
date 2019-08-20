@@ -40,6 +40,19 @@ public class TeamServiceImpl implements TeamService {
     }
 
     @Override
+    public Team update(Integer id, String name, String description) {
+        Optional<Team> tmpteam = teamRepogitory.findById(id);
+        Team team = tmpteam.get();
+
+        team.setName(name);
+        team.setDescription(description);
+
+        teamRepogitory.save(team);
+
+        return team;
+    }
+
+    @Override
     public Team makeTeam(String name , String description) {
         Team team = new Team(name,description);
         teamRepogitory.save(team);

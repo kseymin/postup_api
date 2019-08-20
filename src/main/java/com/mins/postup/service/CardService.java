@@ -13,4 +13,6 @@ public interface CardService {
 
     Card delete(Integer card_id);
 
+    Card update(Integer id , String name,String description);
+
 }

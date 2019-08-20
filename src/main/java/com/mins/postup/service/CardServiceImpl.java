@@ -46,4 +46,16 @@ public class CardServiceImpl implements CardService {
         cardRepogitory.delete(card);
         return card;
     }
+
+    //update
+    @Override
+    public Card update(Integer id, String name, String description) {
+        Optional<Card> tmpcard = cardRepogitory.findById(id);
+        Card card = tmpcard.get();
+
+        card.setName(name);
+        card.setDescription(description);
+        cardRepogitory.save(card);
+        return card;
+    }
 }

@@ -47,4 +47,15 @@ public class ListServiceImpl implements ListService {
 
         return list;
     }
+
+    @Override
+    public List update(Integer id, String name) {
+        Optional<List> tmplist = listRepogitory.findById(id);
+        List list = tmplist.get();
+        list.setName(name);
+
+        listRepogitory.save(list);
+
+        return list;
+    }
 }

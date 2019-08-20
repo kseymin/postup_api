@@ -20,17 +20,13 @@ public class UserController {
     @Autowired
     UserService userService;
 
-    @PostMapping("/test")
-    public String test(@Param("id")String id){
-        System.out.println(id);
-        return "gigig";
-    }
+
 
     //Create
     @PostMapping("/making")
     public User put(@RequestBody Map<String,Object> object ){
         String user_id = object.get("user_id").toString();
-        String pwd = object.get("pwd").toString();
+        String pwd = object.get("password").toString();
         String email = object.get("email").toString();
         String name = object.get("name").toString();
         return userService.create(user_id,pwd,email,name);
@@ -63,17 +59,18 @@ public class UserController {
     }
 
     //change User info
-    @PostMapping("/change_info")
+    //@PostMapping("/update")
+    @PutMapping("/update")
     public User change_info(@RequestBody Map<String ,Object> user){
         Long id = Long.parseLong(user.get("id").toString());
-        String pwd = user.get("pwd").toString();
+        String pwd = user.get("password").toString();
         String email = user.get("email").toString();
         String name = user.get("name").toString();
         return userService.changeInfo(id,pwd,email,name);
     }
 
     //change User password
-    @PostMapping("/change_pwd")
+    @PostMapping("/change_password")
     public User change_password(@RequestBody Map<String,Object> object){
         Long id = Long.parseLong(object.get("id").toString());
         String pwd = object.get("password").toString();

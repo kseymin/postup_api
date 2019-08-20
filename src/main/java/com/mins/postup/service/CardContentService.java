@@ -12,4 +12,5 @@ public interface CardContentService {
     CardContent making(String name, String contents , Integer card_id);
 
     CardContent delete(Integer cardcontent_id);
+    CardContent update(Integer cardcontent_id,String name,String contents);
 }

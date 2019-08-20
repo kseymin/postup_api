@@ -56,4 +56,17 @@ public class BoardServiceImpl implements BoardService{
         boardRepogitory.delete(board);
         return board;
     }
+
+    @Override
+    public Board update(Integer id, String name, String description) {
+        Optional<Board> tmpboard= boardRepogitory.findById(id);
+        Board board = tmpboard.get();
+
+        board.setName(name);
+        board.setDescription(description);
+        boardRepogitory.save(board);
+        return board;
+    }
+
+
 }

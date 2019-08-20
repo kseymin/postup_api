@@ -12,4 +12,6 @@ public interface ListService {
 
     List delete(Integer id);
 
+    List update(Integer id , String name);
+
 }

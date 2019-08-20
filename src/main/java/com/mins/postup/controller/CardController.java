@@ -44,4 +44,15 @@ public class CardController {
 
     }
 
+    //update
+    //@PostMapping("/update")
+    @PutMapping("/update")
+    public Card update(@RequestBody Map<String , Object> object){
+        Integer id = Integer.parseInt(object.get("id").toString());
+        String name = object.get("name").toString();
+        String description = object.get("description").toString();
+
+        return cardService.update(id,name,description);
+    }
+
 }

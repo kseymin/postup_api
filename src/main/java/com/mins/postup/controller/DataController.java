@@ -42,4 +42,13 @@ public class DataController {
         String datafiles = object.get("datafiles").toString();
         return dataService.making(cardContent_id,datafiles);
     }
+
+    //@PostMapping("/update")
+    @PutMapping("/update")
+    public  Data update(@RequestBody Map<String, Object> object){
+        Integer id = Integer.parseInt(object.get("id").toString());
+        String datafiles = object.get("datafiles").toString();
+
+        return dataService.update(id,datafiles);
+    }
 }

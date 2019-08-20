@@ -38,4 +38,14 @@ public class ListController {
         Integer id = Integer.parseInt(object.get("id").toString());
         return listService.delete(id);
     }
+
+    //update
+    //@PostMapping("/update")
+    @PutMapping("/update")
+    public List update(@RequestBody Map<String,Object> object){
+        Integer id = Integer.parseInt(object.get("id").toString());
+        String name = object.get("name").toString();
+
+        return listService.update(id,name);
+    }
 }

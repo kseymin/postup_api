@@ -49,4 +49,16 @@ public class BoardController {
         return boardService.delete(id);
 
     }
+
+    //update board
+
+    //@PostMapping("/update")
+    @PutMapping("/update")
+    public Board update(@RequestBody Map<String,Object> object){
+        Integer id = Integer.parseInt(object.get("id").toString());
+        String name = object.get("name").toString();
+        String description = object.get("description").toString();
+
+        return boardService.update(id,name,description);
+    }
 }

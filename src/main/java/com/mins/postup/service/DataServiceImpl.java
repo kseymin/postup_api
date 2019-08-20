@@ -47,5 +47,16 @@ public class DataServiceImpl implements DataService{
         return data;
     }
 
+    @Override
+    public Data update(Integer id, String datafiles) {
+        Optional<Data> tmpdata = dataRepogitory.findById(id);
+        Data data = tmpdata.get();
+
+        data.setDatafiles(datafiles);
+        dataRepogitory.save(data);
+
+        return data;
+    }
+
 
 }

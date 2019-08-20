@@ -45,4 +45,17 @@ public class CardContentServiceImpl implements CardContentService {
         cardContentRepogitory.delete(cc);
         return cc;
     }
+
+
+    //update
+    @Override
+    public CardContent update(Integer cardcontent_id, String name, String contents) {
+        Optional<CardContent> tmpcard = cardContentRepogitory.findById(cardcontent_id);
+        CardContent cc = tmpcard.get();
+        cc.setName(name);
+        cc.setContents(contents);
+        cardContentRepogitory.save(cc);
+
+        return cc;
+    }
 }

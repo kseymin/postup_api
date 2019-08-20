@@ -12,4 +12,6 @@ public interface BoardService {
     List<Board> findByUser(Integer user_id);
 
     Board delete(Integer board_id);
+
+    Board update(Integer id,String name,String description);
 }
