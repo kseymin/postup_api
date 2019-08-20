@@ -1,5 +1,6 @@
 package com.mins.postup.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.OnDelete;
@@ -8,10 +9,11 @@ import org.hibernate.annotations.OnDeleteAction;
 import javax.persistence.*;
 
 @Table
-@Entity(name = "DATA")
+@Entity(name = "data")
 @lombok.Data
 @AllArgsConstructor
 @NoArgsConstructor
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Data {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -27,7 +29,6 @@ public class Data {
     private String name;
 
     @Column(name = "data_uri")
-    @Lob
     private String data_uri;
 
     public Data(CardContent cardContent,String name,String data_uri){
