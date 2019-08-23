@@ -38,8 +38,8 @@ public class BoardController {
     // 해당하는 사용자의 모든 보드를 보여줌(보드의 모든정보) , 리스트로 던져줌
     @PostMapping("/findbyuser")
     public List<Board> findByUser(@RequestBody Map<String, Object> object) {
-        Integer user_id = Integer.parseInt(object.get("user_id").toString());
-        return boardService.findByUser(user_id);
+        Long user_id = Long.parseLong(object.get("user_id").toString());
+        return boardService.findByUser_id(user_id);
     }
 
     //delete board

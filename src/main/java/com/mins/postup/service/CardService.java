@@ -15,4 +15,6 @@ public interface CardService {
 
     Card update(Integer id , String name,String description);
 
+    List<Card> findByList (com.mins.postup.entity.List list);
+
 }

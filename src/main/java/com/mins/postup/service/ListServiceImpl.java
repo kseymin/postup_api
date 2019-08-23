@@ -58,4 +58,16 @@ public class ListServiceImpl implements ListService {
 
         return list;
     }
+
+    @Override
+    public java.util.List<List> findbyBoard(Board board) {
+//        Optional<Board> tmpboard=boardService.findById(board_id);
+//        Board board = tmpboard.get();
+
+        java.util.List<List> listList = listRepogitory.findByBoard(board);
+
+
+
+        return listList;
+    }
 }

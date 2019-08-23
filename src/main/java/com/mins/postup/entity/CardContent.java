@@ -39,4 +39,9 @@ public class CardContent {
         this.card = card;
 
     }
+
+    public CardContent(String name, String contents) {
+        this.name = name;
+        this.contents = contents;
+    }
 }

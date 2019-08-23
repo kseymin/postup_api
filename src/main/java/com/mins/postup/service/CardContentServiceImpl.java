@@ -58,4 +58,14 @@ public class CardContentServiceImpl implements CardContentService {
 
         return cc;
     }
+
+    @Override
+    public List<CardContent> findbyCard(Card card) {
+//        Optional<CardContent> tmpcard = cardContentRepogitory.findById(cc_id);
+//        CardContent cc = tmpcard.get();
+
+        List<CardContent> ccList = cardContentRepogitory.findByCard(card);
+
+        return ccList;
+    }
 }

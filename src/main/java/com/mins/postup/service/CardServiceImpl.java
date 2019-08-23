@@ -58,4 +58,14 @@ public class CardServiceImpl implements CardService {
         cardRepogitory.save(card);
         return card;
     }
+
+    @Override
+    public List<Card> findByList(com.mins.postup.entity.List list) {
+//        Optional<com.mins.postup.entity.List> tmplist = listService.findById(list_id);
+//        com.mins.postup.entity.List list = tmplist.get();
+
+        List<Card> cardList = cardRepogitory.findByList(list);
+
+        return cardList;
+    }
 }

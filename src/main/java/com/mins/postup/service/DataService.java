@@ -28,6 +28,8 @@ public interface DataService {
 
     Resource downlaodFile(Integer id);
 
+    List<Data> findByCardContent(CardContent cardContent);
+
     //application이 시작할때 원래있던거 지우기위한 메소드
     void init();
     void deleteAll();

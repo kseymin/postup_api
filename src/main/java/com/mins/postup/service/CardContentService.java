@@ -1,5 +1,6 @@
 package com.mins.postup.service;
 
+import com.mins.postup.entity.Card;
 import com.mins.postup.entity.CardContent;
 
 import java.util.List;
@@ -13,4 +14,6 @@ public interface CardContentService {
 
     CardContent delete(Integer cardcontent_id);
     CardContent update(Integer cardcontent_id,String name,String contents);
+
+    List<CardContent> findbyCard(Card card);
 }

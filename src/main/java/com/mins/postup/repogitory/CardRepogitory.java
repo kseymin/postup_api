@@ -9,5 +9,5 @@ import java.util.Optional;
 public interface CardRepogitory extends JpaRepository<Card,Integer> {
     List<Card> findAll();
     Optional<Card> findById(Integer card_id);
-
+    List<Card> findByList (com.mins.postup.entity.List list);
 }

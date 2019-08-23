@@ -29,6 +29,11 @@ public class Card {
     @Column(name="description")
     private String description;
 
+    public Card(String name, String description) {
+        this.name = name;
+        this.description = description;
+    }
+
     @ManyToOne(fetch = FetchType.LAZY)
     @OnDelete(action = OnDeleteAction.CASCADE)
     @JoinColumn(name = "list_id" ,updatable = true)

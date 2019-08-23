@@ -149,6 +149,16 @@ public class DataServiceImpl implements DataService{
 
     }
 
+    @Override
+    public List<Data> findByCardContent(CardContent cardContent) {
+//        Optional<Data> tmpdata = dataRepogitory.findById(data_id);
+//        Data data = tmpdata.get();
+
+        List<Data> dataList = dataRepogitory.findByCardContent(cardContent);
+
+        return dataList;
+    }
+
     // 처음시작시 로컬 시스템에있는 파일삭제하기위해 필요
 
     @Override

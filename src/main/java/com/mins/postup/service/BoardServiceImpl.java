@@ -39,13 +39,18 @@ public class BoardServiceImpl implements BoardService{
     }
 
     @Override
-    public List<Board> findByUser(Integer user_id) {
+    public List<Board> findByUser_id(Long user_id) {
         Optional<User> tmpuser = userService.findById(user_id);
         User user = tmpuser.get();
 
         List<Board> boardList = boardRepogitory.findByUser(user);
 
         return boardList;
+    }
+
+    @Override
+    public List<Board> findByUser(User user) {
+        return boardRepogitory.findByUser(user);
     }
 
     @Override
