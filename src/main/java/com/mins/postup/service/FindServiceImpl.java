@@ -185,6 +185,9 @@ public class FindServiceImpl implements FindService {
                 mapDepth1.put("card_name",card.getName());
                 mapDepth1.put("card_description",card.getDescription());
 
+                //add null info for prontend
+                mapDepth1.put("cardcontentlist",null);
+
                 tmpList_card.add(mapDepth1);
 
                 pcard = new ProcessedCard(list.getId(),list.getName(),tmpList_card);
@@ -205,6 +208,7 @@ public class FindServiceImpl implements FindService {
                     pCC = new ProcessedCard(list.getId(),list.getName(),tmpList_card);
 
                 }
+
 
                 //초기화
                 tmpList_cc = new ArrayList();
