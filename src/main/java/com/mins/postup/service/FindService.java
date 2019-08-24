@@ -11,6 +11,8 @@ public interface FindService {
 //
      List findall_board_info(Integer board_id);
 
+     Object findall_board(Integer board_id);
+
      //List<AllInfo> findall();
 
 }

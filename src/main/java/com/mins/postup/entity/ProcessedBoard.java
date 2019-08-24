@@ -14,6 +14,17 @@ import lombok.NoArgsConstructor;
 public class ProcessedBoard {
 
     private Integer List_id;
+    private String List_name;
+
+    private Integer card_id;
+    private String card_name;
+    private String card_description;
+
+
+    private Integer cardcontent_id;
+    private String cardcontent_name;
+    private String cardcontent_contents;
+
 
     public void setList_id(Integer list_id) {
         List_id = list_id;
@@ -78,17 +89,6 @@ public class ProcessedBoard {
     public String getCardcontent_contents() {
         return cardcontent_contents;
     }
-
-    private String List_name;
-
-    private Integer card_id;
-    private String card_name;
-    private String card_description;
-
-
-    private Integer cardcontent_id;
-    private String cardcontent_name;
-    private String cardcontent_contents;
 
 
     public ProcessedBoard(Integer list_id, String list_name, Integer card_id, String card_name, String card_description, Integer cardcontent_id, String cardcontent_name, String cardcontent_contents) {

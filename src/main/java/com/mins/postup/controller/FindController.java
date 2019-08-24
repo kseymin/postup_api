@@ -17,11 +17,19 @@ public class FindController {
     FindService findService;
 
 
-    @PostMapping("/board/id")
-    public List find(@RequestBody Map<String,Object> object){
+    @PostMapping("/joinboard/id")
+    public List find_join(@RequestBody Map<String,Object> object){
         Integer board_id = Integer.parseInt(object.get("board_id").toString());
 
         return  findService.findall_board_info(board_id);
+
+    }
+
+    @PostMapping("/board/id")
+    public Object find(@RequestBody Map<String,Object> object){
+        Integer board_id = Integer.parseInt(object.get("board_id").toString());
+
+        return  findService.findall_board(board_id);
 
     }
 
