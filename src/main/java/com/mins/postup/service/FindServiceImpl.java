@@ -5,14 +5,13 @@ package com.mins.postup.service;
 
 
 import com.mins.postup.entity.*;
+import com.mins.postup.model.ProcessedBoard;
 import com.mins.postup.model.ProcessedCard;
 import com.mins.postup.model.ProcessedList;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
 import java.util.*;
 import java.util.List;
 
@@ -36,6 +35,8 @@ public class FindServiceImpl implements FindService {
 
 
 
+
+    //Join datas
     @Override
     public List findall_board_info(Integer board_id) {
 
@@ -123,6 +124,9 @@ public class FindServiceImpl implements FindService {
         return resultList;
     }
 
+
+
+    //not join used model
     @Override
     public Object findall_board(Integer board_id) {
         Optional<Board> tmpboard = boardService.findById(board_id);

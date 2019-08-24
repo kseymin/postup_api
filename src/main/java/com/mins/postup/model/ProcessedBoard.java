@@ -1,4 +1,4 @@
-package com.mins.postup.entity;
+package com.mins.postup.model;
 
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
