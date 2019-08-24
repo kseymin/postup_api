@@ -2,6 +2,7 @@ package com.mins.postup.controller;
 
 import com.mins.postup.entity.Board;
 import com.mins.postup.service.BoardService;
+import com.mins.postup.service.ListService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -14,6 +15,9 @@ import java.util.Optional;
 public class BoardController {
     @Autowired
     BoardService boardService;
+
+    @Autowired
+    ListService listService;
 
     @GetMapping("/findall")
     public List<Board> findAll(){
@@ -41,6 +45,18 @@ public class BoardController {
         Long user_id = Long.parseLong(object.get("user_id").toString());
         return boardService.findByUser_id(user_id);
     }
+
+    //find list by board
+    @PostMapping("/lists/id")
+    public List<com.mins.postup.entity.List> findlists(@RequestBody Map<String, Object> object) {
+        Integer board_id = Integer.parseInt(object.get("id").toString());
+        Optional<Board> oboard = boardService.findById(board_id);
+        Board board = oboard.get();
+
+        return listService.findbyBoard(board);
+    }
+
+
 
     //delete board
     @DeleteMapping("/id")

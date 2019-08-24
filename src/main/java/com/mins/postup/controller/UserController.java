@@ -1,7 +1,9 @@
 package com.mins.postup.controller;
 
 
+import com.mins.postup.entity.Board;
 import com.mins.postup.entity.User;
+import com.mins.postup.service.BoardService;
 import com.mins.postup.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.query.Param;
@@ -21,6 +23,8 @@ public class UserController {
     UserService userService;
 
 
+    @Autowired
+    BoardService boardService;
 
     //Create
     @PostMapping("/making")
@@ -57,6 +61,19 @@ public class UserController {
         String user_id = object.get("user_id").toString();
         return  userService.findByUserid(user_id);
     }
+
+
+    //find board by user
+    @PostMapping("/boards/id")
+    public List<Board> findBoards(@RequestBody Map<String,Object> object){
+        String user_id = object.get("id").toString();
+        Optional<User> ouser = userService.findByUserid(user_id);
+        User user = ouser.get();
+
+        return  boardService.findByUser(user);
+    }
+
+
 
     //change User info
     //@PostMapping("/update")

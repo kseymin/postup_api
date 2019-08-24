@@ -16,6 +16,7 @@ public interface UserService {
     Optional<User> findById(long id);
     //search by user_id(String)
     Optional<User> findByUserid(String user_id);
+
     //change user info
     User changeInfo(Long id,String newPwd,String newEmail,String newName);
     //change user password
