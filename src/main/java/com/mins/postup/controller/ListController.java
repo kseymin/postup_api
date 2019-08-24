@@ -1,6 +1,8 @@
 package com.mins.postup.controller;
 
+import com.mins.postup.entity.Card;
 import com.mins.postup.entity.List;
+import com.mins.postup.service.CardService;
 import com.mins.postup.service.ListService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -13,6 +15,9 @@ import java.util.Optional;
 public class ListController {
     @Autowired
     ListService listService;
+
+    @Autowired
+    CardService cardService;
 
     @GetMapping("/findall")
     public java.util.List<List> findall(){
@@ -31,6 +36,20 @@ public class ListController {
         Integer id = Integer.parseInt(object.get("id").toString());
         return listService.findById(id);
     }
+
+
+    //find card to list_id
+    @PostMapping("/cards/id")
+    public java.util.List<Card> findcards(@RequestBody Map<String,Object> object) {
+        Integer list_id = Integer.parseInt(object.get("id").toString());
+
+        Optional<List> olist= listService.findById(list_id);
+        List list = olist.get();
+
+        return cardService.findByList(list);
+
+    }
+
 
     //delete
     @DeleteMapping("/id")

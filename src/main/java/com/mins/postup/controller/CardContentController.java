@@ -3,10 +3,13 @@ package com.mins.postup.controller;
 
 import com.mins.postup.entity.Card;
 import com.mins.postup.entity.CardContent;
+import com.mins.postup.entity.Data;
 import com.mins.postup.service.CardContentService;
+import com.mins.postup.service.DataService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.swing.text.html.Option;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
@@ -16,6 +19,9 @@ import java.util.Optional;
 public class CardContentController {
     @Autowired
     CardContentService cardContentService;
+
+    @Autowired
+    DataService dataService;
 
     @GetMapping("/findall")
     public List<CardContent> findall(){
@@ -27,6 +33,20 @@ public class CardContentController {
         Integer id = Integer.parseInt(object.get("id").toString());
         return  cardContentService.findById(id);
     }
+
+    // find datas to CardContent
+    @PostMapping("/datas/id")
+    public List<Data> findDatas(@RequestBody Map<String,Object> object){
+        Integer cc_id = Integer.parseInt(object.get("id").toString());
+
+        Optional<CardContent> occ =cardContentService.findById(cc_id);
+        CardContent cc = occ.get();
+
+        return  dataService.findByCardContent(cc);
+    }
+
+
+
 
     @PostMapping("/making")
     public CardContent making(@RequestBody Map<String , Object> object){
