@@ -44,7 +44,7 @@ Service
 
 현재 PostupApplication 클래스 내에서 
 
-아래에 소스코드로 저장되는 데이터(파일,문서등) 을 프로그램 시작시 모두 지우게 설정해 두었습니다. 
+아래에  저장되는 데이터(파일,문서등) 을 프로그램 시작시 모두 지우게 설정해 두었습니다. 
 
 해당 기능을 원하지않으면 삭제하시면됩니다.
 
@@ -73,8 +73,8 @@ Post man 어플리케이션을 기준으로 설명합니다.
 
 기본설정
 
-<img src=https://github.com/kseymin/postup_api/blob/master/Postman_Send.png/>
+<img src=https://github.com/kseymin/postup_api/blob/master/Readme_img/Postman_Send.png/>
 
 결과값
 
-<center><img src=https://github.com/kseymin/postup_api/blob/master/Postman_Result.png/></center>
+<center><img src=https://github.com/kseymin/postup_api/blob/master/Readme_img/Postman_Result.png/></center>
