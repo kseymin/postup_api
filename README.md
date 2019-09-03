@@ -2,18 +2,18 @@
 postup project의  Restful api 서버입니다.
 
 
-# 사용 기술
+## 사용 기술
 
 Spring boot , JPA(Hibernate), H2 DB
 
-# Document
+## Document
 
 [Wiki](https://github.com/kseymin/postup_api/wiki)
   
 해당링크를 확인하여 API 사용법을 참조해주십시오. (Github Wiki 기능사용)
 
 
-# 프로젝트 디렉토리 구조
+### 프로젝트 디렉토리 구조
 
 **cofig**
 
@@ -66,7 +66,7 @@ Spring boot , JPA(Hibernate), H2 DB
 ```
 
 
-# 테스트 방법
+### 테스트 방법
 
 Post man 어플리케이션을 기준으로 설명합니다.
 (다른 API 테스트 툴을 써도 됩니다.)
