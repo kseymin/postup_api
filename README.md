@@ -6,6 +6,11 @@ postup project의  Restful api 서버입니다.
 
 Spring boot , JPA(Hibernate), H2 DB
 
+# Document
+
+[Wiki](https://github.com/kseymin/postup_api/wiki)
+  
+해당링크를 확인하여 API 사용법을 참조해주십시오. (Github Wiki 기능사용)
 
 
 # 프로젝트 디렉토리 구조
