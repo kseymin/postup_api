@@ -13,7 +13,7 @@ Spring boot , JPA(Hibernate), H2 DB
 해당링크를 확인하여 API 사용법을 참조해주십시오. (Github Wiki 기능사용)
 
 
-### 프로젝트 디렉토리 구조
+## 프로젝트 디렉토리 구조
 
 **cofig**
 
@@ -65,6 +65,8 @@ Spring boot , JPA(Hibernate), H2 DB
     }
 ```
 
+
+***
 
 ### 테스트 방법
 
