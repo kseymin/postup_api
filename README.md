@@ -73,8 +73,8 @@ Post man 어플리케이션을 기준으로 설명합니다.
 
 기본설정
 
-<img src=https://github.com/kseymin/postup_api/blob/master/Postman_Send.png/>
+<img src=https://github.com/kseymin/postup_api/blob/master/Readme_img/Postman_Send.png/>
 
 결과값
 
-<center><img src=https://github.com/kseymin/postup_api/blob/master/Postman_Result.png/></center>
+<center><img src=https://github.com/kseymin/postup_api/blob/master/Readme_img/Postman_Result.png/></center>
