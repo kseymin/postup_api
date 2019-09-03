@@ -59,8 +59,8 @@ Service
     }
 ```
 
-#테스트 방법
 
+# 테스트 방법
 
 Post man 어플리케이션을 기준으로 설명합니다.
 (다른 API 테스트 툴을 써도 됩니다.)
@@ -70,4 +70,11 @@ Post man 어플리케이션을 기준으로 설명합니다.
 3.  Body 에 Raw 를 선택하고 JSON형식으로 데이터를 적어줍니다.
 4.  Send 를 한후 결과값이 제대로 오면 끝
 
-URL 
+
+기본설정
+
+<img src=https://github.com/kseymin/postup_api/blob/master/Postman_Send.png/>
+
+결과값
+
+<center><img src=https://github.com/kseymin/postup_api/blob/master/Postman_Result.png/></center>
